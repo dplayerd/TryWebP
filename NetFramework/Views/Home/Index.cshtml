@@ -1,0 +1,20 @@
+﻿@model Images
+@using NetFramework.Models
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form method="post" enctype="multipart/form-data">
+    <h2>Upload image as WebP Format</h2>
+    <input type="file" name="image"/>
+    <input type="submit" value="Upload"/>
+</form>
+
+@if (Model != null)
+{
+    <picture style="height: 50vh;">
+        <source srcset="@Model.WebPImage" type="image/webp"/>
+        <img src="@Model.NormalImage" style="height: 50vh;" alt="No image" />
+    </picture>
+}
